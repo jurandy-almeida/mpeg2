@@ -1,0 +1,46 @@
+diff -urN ffmpeg-864fdfa-orig/doc/ffmpeg.texi ffmpeg-864fdfa-patch/doc/ffmpeg.texi
+--- ffmpeg-864fdfa-orig/doc/ffmpeg.texi	2013-02-06 15:17:27.000000000 -0200
++++ ffmpeg-864fdfa-patch/doc/ffmpeg.texi	2017-07-25 16:47:35.000000000 -0300
+@@ -1024,7 +1024,7 @@
+ 
+ As a special exception, you can use a bitmap subtitle stream as input: it
+ will be converted into a video with the same size as the largest video in
+-the file, or 720×576 if no video is present. Note that this is an
++the file, or 720x576 if no video is present. Note that this is an
+ experimental and temporary solution. It will be removed once libavfilter has
+ proper support for subtitles.
+ 
+diff -urN ffmpeg-864fdfa-orig/doc/filters.texi ffmpeg-864fdfa-patch/doc/filters.texi
+--- ffmpeg-864fdfa-orig/doc/filters.texi	2013-02-06 15:17:27.000000000 -0200
++++ ffmpeg-864fdfa-patch/doc/filters.texi	2017-07-25 16:48:31.000000000 -0300
+@@ -4589,7 +4589,7 @@
+ 
+ @var{layout}[:@var{nb_frames}[:@var{margin}[:@var{padding}]]]
+ 
+-For example, produce 8×8 PNG tiles of all keyframes (@option{-skip_frame
++For example, produce 8x8 PNG tiles of all keyframes (@option{-skip_frame
+ nokey}) in a movie:
+ @example
+ ffmpeg -skip_frame nokey -i file.avi -vf 'scale=128:72,tile=8x8' -an -vsync 0 keyframes%03d.png
+@@ -5996,7 +5996,7 @@
+ The filter has @var{v}+@var{a} outputs: first @var{v} video outputs, then
+ @var{a} audio outputs.
+ 
+-There are @var{n}×(@var{v}+@var{a}) inputs: first the inputs for the first
++There are @var{n}x(@var{v}+@var{a}) inputs: first the inputs for the first
+ segment, in the same order as the outputs, then the inputs for the second
+ segment, etc.
+ 
+diff -urN ffmpeg-864fdfa-orig/libavcodec/libvpxenc.c ffmpeg-864fdfa-patch/libavcodec/libvpxenc.c
+--- ffmpeg-864fdfa-orig/libavcodec/libvpxenc.c	2013-02-06 15:17:27.000000000 -0200
++++ ffmpeg-864fdfa-patch/libavcodec/libvpxenc.c	2017-07-25 16:49:22.000000000 -0300
+@@ -81,9 +81,6 @@
+ 
+ /** String mappings for enum vp8e_enc_control_id */
+ static const char *const ctlidstr[] = {
+-    [VP8E_UPD_ENTROPY]           = "VP8E_UPD_ENTROPY",
+-    [VP8E_UPD_REFERENCE]         = "VP8E_UPD_REFERENCE",
+-    [VP8E_USE_REFERENCE]         = "VP8E_USE_REFERENCE",
+     [VP8E_SET_ROI_MAP]           = "VP8E_SET_ROI_MAP",
+     [VP8E_SET_ACTIVEMAP]         = "VP8E_SET_ACTIVEMAP",
+     [VP8E_SET_SCALEMODE]         = "VP8E_SET_SCALEMODE",
